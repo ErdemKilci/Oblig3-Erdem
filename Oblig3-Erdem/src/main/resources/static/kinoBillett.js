@@ -48,11 +48,13 @@ function showTickets() {
     const ticketList = $('#ticketsAll');
     ticketList.empty();
 
+    // sorting the Tickets array by etternavn before displaying
+    Tickets.sort((a, b) => a.etternavn.localeCompare(b.etternavn));
+
     Tickets.forEach(function(ticket) {
         const ticketInfo = $('<div>').text(`Film: ${ticket.film}, Antall: ${ticket.antall}, Navn: ${ticket.fornavn} ${ticket.etternavn}, Telefonnummer: ${ticket.telefonNummer}, E-post: ${ticket.epost}`);
         ticketList.append(ticketInfo);
     });
-
 }
 
 function clearFields() {
@@ -71,14 +73,16 @@ function removeTickets() {
 
 function getAllTickets() {
     $.get("/getAll", function (data) {
+        Tickets = data;
         showTickets();
     });
 }
 
 function deleteAllTickets() {
-    Tickets = [];
+
     showTickets();
     $.get("/deleteAll", function () {
+        Tickets = [];
         getAllTickets()
     })
 }
