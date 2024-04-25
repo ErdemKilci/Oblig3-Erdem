@@ -1,44 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kinobilletter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-group {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            width: 100%;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        #ticketsAll {
+            text-align: center;
+        }
+        .btn-danger {
+            margin-top: 17px;
+            width: 20%;
+        }
+    </style>
 </head>
 <body>
-<h1>Bestilling av kinobilletter</h1>
-
-<form id="ticketForm">
-    <label for="film">Film:</label>
-    <select name="films" id="film" required>
-        <option value="Monster">Monster</option>
-        <option value="Shrek">Shrek</option>
-        <option value="Cars">Cars</option>
-    </select><br>
-
-    <label for="antall">Antall billetter:</label>
-    <input type="number" id="antall" required><br>
-
-    <label for="fornavn">Fornavn:</label>
-    <input type="text" id="fornavn" required><br>
-
-    <label for="etternavn">Etternavn:</label>
-    <input type="text" id="etternavn" required><br>
-
-    <label for="telefonNummer">Telefonnummer:</label>
-    <input type="tel" id="telefonNummer" required><br>
-
-    <label for="epost">E-postadresse:</label>
-    <input type="email" id="epost" required><br>
-
-    <button type="button" onclick="buyTicket()">Kjøp billett</button>
-</form>
-
-<h2 id="ticketsAll">Alle Billetter</h2>
-
-<button type="button" onclick="deleteAllTickets()">Slett alle billettene</button>
-
+<div class="container">
+    <h1 class="mt-5">Bestilling av kinobilletter</h1>
+    <form id="ticketForm" class="mt-4">
+        <div class="form-group">
+            <label for="film">Film:</label>
+            <select class="form-control" name="films" id="film" required>
+                <option value="Monster">Monster</option>
+                <option value="Shrek">Shrek</option>
+                <option value="Cars">Cars</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="antall">Antall billetter:</label>
+            <input class="form-control" type="number" id="antall" required>
+        </div>
+        <div class="form-group">
+            <label for="fornavn">Fornavn:</label>
+            <input class="form-control" type="text" id="fornavn" required>
+        </div>
+        <div class="form-group">
+            <label for="etternavn">Etternavn:</label>
+            <input class="form-control" type="text" id="etternavn" required>
+        </div>
+        <div class="form-group">
+            <label for="telefonNummer">Telefonnummer:</label>
+            <input class="form-control" type="tel" id="telefonNummer" required>
+        </div>
+        <div class="form-group">
+            <label for="epost">E-postadresse:</label>
+            <input class="form-control" type="email" id="epost" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="buyTicket()">Kjøp billett</button>
+    </form>
+    <h2 id="ticketsAll" class="mt-5">Alle Billetter</h2>
+    <button type="button" class="btn btn-danger" onclick="deleteAllTickets()">Slett alle billettene</button>
+</div>
 <script src="kinoBillett.js"></script>
 </body>
 </html>
